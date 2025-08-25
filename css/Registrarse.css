@@ -1,0 +1,219 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+}
+
+.inicio {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to top, #00d8c6 0%, #f2f2f2 100%);
+    padding: 20px;
+    position: relative;
+}
+
+.Containter-logo img {
+    max-width: 180px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.Containter-logo h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.welcome-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    padding: 30px 20px;
+    max-width: 350px;
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.form-registro {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.form-registro input[type="text"],
+.form-registro input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-registro button {
+    width: 100%;
+    padding: 12px;
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+}
+
+.form-registro button:hover {
+    background: #00d8c6;
+}   
+
+.btn-regresar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #00d8c6;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.2s;
+    z-index: 2000;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-regresar:hover {
+    background: #4CAF50;
+}
+
+/* Olas */
+section {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+    margin-top: -20px;
+}
+
+section .wave {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 200%;
+    height: 100px;
+    background: url('../img/wave.png');
+    background-size: 1000px 100px;
+}
+
+section .wave.wave1 {
+    animation: animate 30s linear infinite;
+    z-index: 1000;
+    opacity: 1;
+    animation-delay: 0s;
+    bottom: 0;
+}
+section .wave.wave2 {
+    animation: animate2 15s linear infinite;
+    z-index: 999;
+    opacity: 0.5;
+    animation-delay: -5s;
+    bottom: 10px;
+}
+section .wave.wave3 {
+    animation: animate3 30s linear infinite;
+    z-index: 998;
+    opacity: 0.2;
+    animation-delay: -2s;
+    bottom: 15px;
+}
+section .wave.wave4 {
+    animation: animate4 5s linear infinite;
+    z-index: 997;
+    opacity: 0.7;
+    animation-delay: -5s;
+    bottom: 20px;
+}
+
+@keyframes animate {
+    0% { background-position-x: 0; }
+    100% { background-position-x: 1000px; }
+}
+@keyframes animate2 {
+    0% { background-position-x: 0; }
+    100% { background-position-x: -1000px; }
+}
+@keyframes animate3 {
+    0% { background-position-x: 0; }
+    100% { background-position-x: 1000px; }
+}
+@keyframes animate4 {
+    0% { background-position-x: 0; }
+    100% { background-position-x: 1000px; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .welcome-card {
+        padding: 15px 8px;
+        max-width: 95vw;
+    }
+    .Containter-logo img {
+        max-width: 120px;
+    }
+    .Containter-logo h2 {
+        font-size: 1.2rem;
+    }
+    section {
+        height: 80px;
+    }
+    section .wave {
+        height: 60px;
+        background-size: 600px 60px;
+    }
+}
+
+.btn-regresar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    cursor: pointer;
+    z-index: 2000;
+    transition: filter 0.2s;
+}
+.btn-regresar:hover {
+    filter: brightness(0.8);
+}
+
+.btn-entrar-link {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: #4CAF50;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 8px;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+.btn-entrar-link:hover {
+    background: #00d8c6;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Citas</title>
+    <link rel="stylesheet" href="css/Citas.css">
+</head>
+<body>
+
+    <div>
+     <img src="img/atras.png" alt="Regresar" class="btn-regresar" onclick="window.location.href='Inicio.html'">
+   </div>
+   
+    <div class="citas-container">
+        <h2>Mis Citas</h2>
+        <div class="citas-list">
+            <div class="cita-card pendiente">
+                <h3>Masaje Relajante</h3>
+                <p><strong>Fecha:</strong> 2025-09-01</p>
+                <p><strong>Hora:</strong> 10:00</p>
+                <p><strong>Estado:</strong> <span class="estado">Pendiente</span></p>
+                <a href="#" class="btn-cancelar">Cancelar</a>
+                <a href="#" class="btn-reprogramar">Reprogramar</a>
+            </div>
+            <div class="cita-card confirmada">
+                <h3>Facial Hidratante</h3>
+                <p><strong>Fecha:</strong> 2025-08-20</p>
+                <p><strong>Hora:</strong> 12:00</p>
+                <p><strong>Estado:</strong> <span class="estado">Confirmada</span></p>
+            </div>
+            <div class="cita-card cancelada">
+                <h3>Depilación con Cera</h3>
+                <p><strong>Fecha:</strong> 2025-08-10</p>
+                <p><strong>Hora:</strong> 14:00</p>
+                <p><strong>Estado:</strong> <span class="estado">Cancelada</span></p>
+            </div>
+            <!-- Agrega más citas aquí -->
+        </div>
+    </div>
+</body>
+</html>

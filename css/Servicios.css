@@ -1,0 +1,94 @@
+body {
+    background: #e0f7fa;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.servicios-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.servicios-container h2 {
+    text-align: center;
+    margin-bottom: 32px;
+    color: #00bfae;
+}
+
+.servicios-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+}
+
+.servicio-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    padding: 24px 18px;
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.servicio-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #009688;
+}
+
+.servicio-card p {
+    margin: 6px 0;
+    color: #333;
+    font-size: 15px;
+}
+
+.btn-agendar {
+    margin-top: 16px;
+    padding: 10px 0;
+    width: 100%;
+    background: #00bfae;
+    color: #fff;
+    border-radius: 6px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background 0.2s;
+}
+
+.btn-agendar:hover {
+    background: #009688;
+}
+
+@media (max-width: 600px) {
+    .servicios-list {
+        flex-direction: column;
+        gap: 18px;
+    }
+    .servicio-card {
+        width: 100%;
+    }
+}
+
+.btn-regresar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    cursor: pointer;
+    z-index: 2000;
+    transition: filter 0.2s;
+}
+.btn-regresar:hover {
+    filter: brightness(0.8);
+}

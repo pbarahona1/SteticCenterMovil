@@ -1,0 +1,135 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f2f2f2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .inicio {
+      flex: 1;
+      background: linear-gradient(to top, #00d8c6 0%, #f2f2f2 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .welcome-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    padding: 30px 20px;
+    max-width: 350px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.card-btn {
+    flex: 1;
+    background: #00d8c6;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 0;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.2s;
+    text-align: center;
+}
+
+.card-btn:hover {
+    background: #4CAF50;
+}
+
+    .Containter-logo img {
+      max-width: 280px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    /* Olas */
+    section {
+      position: relative;
+      width: 100%;
+      height: 120px;
+      overflow: hidden;
+      margin-top: -20px;
+    }
+
+    section .wave {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 200%;
+      height: 100px;
+      background: url('../img/wave.png');
+      background-size: 1000px 100px;
+    }
+
+    section .wave.wave1 {
+      animation: animate 30s linear infinite;
+      z-index: 1000;
+      opacity: 1;
+      animation-delay: 0s;
+      bottom: 0;
+    }
+    section .wave.wave2 {
+      animation: animate2 15s linear infinite;
+      z-index: 999;
+      opacity: 0.5;
+      animation-delay: -5s;
+      bottom: 10px;
+    }
+    section .wave.wave3 {
+      animation: animate3 30s linear infinite;
+      z-index: 998;
+      opacity: 0.2;
+      animation-delay: -2s;
+      bottom: 15px;
+    }
+    section .wave.wave4 {
+      animation: animate4 5s linear infinite;
+      z-index: 997;
+      opacity: 0.7;
+      animation-delay: -5s;
+      bottom: 20px;
+    }
+
+    
+
+    @keyframes animate {
+      0% { background-position-x: 0; }
+      100% { background-position-x: 1000px; }
+    }
+    @keyframes animate2 {
+      0% { background-position-x: 0; }
+      100% { background-position-x: -1000px; }
+    }
+    @keyframes animate3 {
+      0% { background-position-x: 0; }
+      100% { background-position-x: 1000px; }
+    }
+    @keyframes animate4 {
+      0% { background-position-x: 0; }
+      100% { background-position-x: 1000px; }
+    }
+
+
+

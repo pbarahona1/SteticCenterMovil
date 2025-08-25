@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Cita</title>
+    <link rel="stylesheet" href="css/AgendarCitas.css">
+</head>
+<body>
+
+    <div>
+     <img src="img/atras.png" alt="Regresar" class="btn-regresar" onclick="window.location.href='Inicio.html'">
+   </div>
+   
+    <div class="agendar-container">
+        <h2>Agendar Cita</h2>
+        <form action="ConfirmacionCita.html" method="post">
+            <!-- Paso 1: Selección de servicio -->
+            <div class="agendar-paso">
+                <h3>Paso 1: Selecciona el servicio</h3>
+                <select name="servicio" required>
+                    <option value="">Selecciona un servicio</option>
+                    <option value="Masaje Relajante">Masaje Relajante</option>
+                    <option value="Facial Hidratante">Facial Hidratante</option>
+                    <option value="Depilación con Cera">Depilación con Cera</option>
+                    <!-- Agrega más servicios aquí -->
+                </select>
+            </div>
+            <!-- Paso 2: Selección de fecha y hora -->
+            <div class="agendar-paso">
+                <h3>Paso 2: Selecciona fecha y hora</h3>
+                <input type="date" name="fecha" required>
+                <select name="hora" required>
+                    <option value="">Selecciona una hora</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <!-- Agrega más horarios aquí -->
+                </select>
+            </div>
+            <!-- Paso 3: Confirmación -->
+            <div class="agendar-paso">
+                <h3>Paso 3: Confirmación</h3>
+                <p>Revisa los detalles y confirma tu cita.</p>
+                <button type="submit" class="btn-agendar">Confirmar cita</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

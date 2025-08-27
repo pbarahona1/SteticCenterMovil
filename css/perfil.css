@@ -67,3 +67,13 @@
 .btn-regresar:hover {
     filter: brightness(0.8);
 }
+
+/* === Auto-added styles === */
+
+.perfil-container{ padding: 16px; display:flex; flex-direction:column; gap:12px; }
+.perfil-datos p{ margin:6px 0; }
+.perfil-acciones{ display:flex; gap:12px; }
+.btn-editar,.btn-cambiar,.btn-primary{ padding:10px 14px; border-radius:999px; border:1px solid #ddd; background:#fff; }
+.modal{ border:none; border-radius:16px; padding:16px; width:min(520px, 92vw); box-shadow: 0 20px 60px rgba(0,0,0,.2); }
+.modal label{ display:flex; flex-direction:column; gap:8px; margin-bottom:12px; font-size:14px; }
+.modal .actions{ display:flex; gap:12px; justify-content:flex-end; margin-top:8px; }

@@ -81,3 +81,11 @@
 .btn-regresar:hover {
     filter: brightness(0.8);
 }
+
+/* === Auto-added styles === */
+
+.facturas-container{ padding: 16px; }
+.facturas-list{ display:flex; flex-direction:column; gap:12px; }
+.factura-card{ border:1px solid #eee; border-radius:16px; padding:12px; box-shadow: 0 8px 24px rgba(0,0,0,.06); }
+.factura-card a{ margin-right:8px; display:inline-block; }
+.btn-detalle, .btn-descargar{ padding:8px 12px; border-radius:999px; border:1px solid #ddd; text-decoration:none; }

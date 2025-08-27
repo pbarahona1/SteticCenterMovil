@@ -135,3 +135,23 @@ body {
     text-align: center;
   }
 }
+
+
+/* === Auto-added styles === */
+
+:root{ --radius: 16px; --pad: 16px; --gap: 12px; --shadow: 0 8px 24px rgba(0,0,0,.08); }
+body{ font-family: 'Poppins', system-ui, -apple-system, sans-serif; margin:0; padding:0; }
+.app-header{ display:flex; align-items:center; gap:12px; padding:var(--pad); position:sticky; top:0; background:#fff; box-shadow: var(--shadow); z-index:10; }
+.greet{ margin-left:auto; font-weight:600; }
+.section{ padding: var(--pad); }
+.list{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:var(--gap); }
+.cita-item{ display:flex; align-items:center; justify-content:space-between; padding:12px 14px; border:1px solid #eee; border-radius:var(--radius); box-shadow: var(--shadow); }
+.cita-fecha{ font-weight:600; }
+.btn-small{ text-decoration:none; padding:8px 12px; border-radius:999px; border:1px solid #ddd; display:inline-block; }
+.grid-cards{ display:grid; grid-template-columns:repeat(auto-fill, minmax(160px,1fr)); gap:var(--gap); padding-bottom: 24px; }
+.card{ border:1px solid #eee; border-radius: var(--radius); padding:12px; box-shadow: var(--shadow); display:flex; flex-direction:column; gap:8px; }
+.card .chip{ font-size:12px; opacity:.7; }
+.card-title{ font-weight:600; min-height: 44px; }
+.card-price{ font-size:20px; font-weight:700; }
+.empty{ opacity:.6; }
+@media (min-width: 768px){ .section{ padding: 24px; } }

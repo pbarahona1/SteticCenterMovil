@@ -1,29 +1,31 @@
-
 import { apiGet, requireSession, formatDate } from './api.js';
 
 function el(sel){ return document.querySelector(sel); }
 function html(node, s){ node.innerHTML = s; }
 
 async function load() {
-  const cliente = requireSession(); if (!cliente) return;
-  // Header greeting
-  const nombre = cliente.nombreCompleto || cliente.NOMBRECOMPLETO || 'Cliente';
+  const cliente = requireSession(); 
+  if (!cliente) return;
+
+
+  const nombre = cliente.NOMBRECOMPLETO || cliente.nombreCompleto || 'Cliente';
   const greetEl = el('#greet');
   if (greetEl) greetEl.textContent = `Hola, ${nombre.split(' ')[0]}!`;
 
   try {
-    const resp = await apiGet('/ApiCitas/GetCitas');
+    const resp = await apiGet('/api/Citas/GetCitas'); 
     const arr = resp.data || resp || [];
-    const id = cliente.idCliente || cliente.IDCLIENTE || cliente.id || cliente.IdCliente;
+    const id = cliente.IDCLIENTE || cliente.idCliente;
+
     const pendientes = arr.filter(x => {
-      const xId = x.idCliente || x.IDCLIENTE || x.IdCliente;
-      const estado = (x.estado || x.ESTADO || '').toString().toUpperCase();
+      const xId = x.IDCLIENTE || x.idCliente;
+      const estado = (x.ESTADO || x.estado || '').toString().toUpperCase();
       return xId == id && ['PENDIENTE','PROGRAMADA','AGENDADA','EN_PROCESO'].includes(estado);
-    }).sort((a,b)=> new Date(a.fechaCita||a.FECHA_CITA) - new Date(b.fechaCita||b.FECHA_CITA));
+    }).sort((a,b)=> new Date(a.FECHA_CITA || a.fechaCita) - new Date(b.FECHA_CITA || b.fechaCita));
 
     const list = pendientes.slice(0,5).map(x => {
-      const f = formatDate(x.fechaCita || x.FECHA_CITA);
-      const estado = x.estado || x.ESTADO || '';
+      const f = formatDate(x.FECHA_CITA || x.fechaCita);
+      const estado = x.ESTADO || x.estado || '';
       return `<li class="cita-item">
         <div>
           <div class="cita-fecha">${f}</div>
@@ -36,20 +38,24 @@ async function load() {
     const ul = el('#citasPendientes');
     if (ul) html(ul, list);
   } catch (e) {
-    console.error(e);
+    console.error("Error al cargar citas:", e);
   }
 
-  // Paquetes y Servicios destacados
   try {
-    const p = await apiGet('/api/paquetes/GetPaquetes');
+    const p = await apiGet('/api/Paquetes'); // 🔹
     const paquetes = (p.data || p || []).slice(0,6);
-    const s = await apiGet('/ApiServicios/ConsultarServicios');
+
+    const s = await apiGet('/api/Servicios'); // 🔹
     const servicios = (s.data || s || []).slice(0,6);
 
     const cards = [...paquetes.map(x => ({
-      tipo:'Paquete', nombre: x.nombrePaquete || x.NOMBREPAQUETE || 'Paquete', precio: x.precio || x.PRECIO
+      tipo:'Paquete', 
+      nombre: x.NOMBREPAQUETE || x.nombrePaquete || 'Paquete', 
+      precio: x.PRECIO || x.precio
     })), ...servicios.map(x => ({
-      tipo:'Servicio', nombre: x.nombreServicio || x.NOMBRESERVICIO || 'Servicio', precio: x.precio || x.PRECIO
+      tipo:'Servicio', 
+      nombre: x.NOMBRESERVICIO || x.nombreServicio || 'Servicio', 
+      precio: x.PRECIO || x.precio
     }))].slice(0,6).map(c => `
       <div class="card">
         <div class="chip">${c.tipo}</div>
@@ -61,7 +67,9 @@ async function load() {
 
     const cont = el('#destacados');
     if (cont) html(cont, cards || '<p class="empty">No hay recomendaciones.</p>');
-  } catch(e){ console.error(e); }
+  } catch(e){ 
+    console.error("Error al cargar paquetes/servicios:", e); 
+  }
 }
 
 document.addEventListener('DOMContentLoaded', load);

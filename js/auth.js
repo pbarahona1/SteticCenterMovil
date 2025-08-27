@@ -1,9 +1,7 @@
-// auth.js - naive login using Cliente correo + contrasenaCliente
 import { apiGet } from './api.js';
 
 async function login(correo, contrasena) {
   const resp = await apiGet('/api/clientes/GetClientes');
-  // API may wrap data; try common shapes
   const data = resp.data || resp || [];
   const match = data.find(c =>
     (c.correo || c.CORREO || c.email) === correo &&

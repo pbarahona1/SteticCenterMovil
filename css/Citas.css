@@ -87,18 +87,3 @@
         padding: 14px 6px;
     }
 }
-
-.btn-regresar {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 36px;
-    height: 36px;
-    object-fit: contain;
-    cursor: pointer;
-    z-index: 2000;
-    transition: filter 0.2s;
-}
-.btn-regresar:hover {
-    filter: brightness(0.8);
-}

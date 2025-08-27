@@ -9,54 +9,26 @@
       background: #f2f2f2;
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
       justify-content: center;
+      align-items: center;
     }
 
     .inicio {
-      flex: 1;
-      background: linear-gradient(to top, #00d8c6 0%, #f2f2f2 100%);
+      width: 100%;
+      height: 100vh; /* Pantalla completa */
+      background: linear-gradient(to top, #a67db8 0%, #f2f2f2 100%);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 20px;
       text-align: center;
-      position: relative;
+      position: relative; /* Necesario para que las olas se posicionen dentro */
+      overflow: hidden;
     }
 
-    .welcome-card {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    padding: 30px 20px;
-    max-width: 350px;
-    margin: 20px auto;
-    text-align: center;
-}
-
-.card-buttons {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.card-btn {
-    flex: 1;
-    background: #00d8c6;
-    color: #fff;
-    text-decoration: none;
-    padding: 12px 0;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: background 0.2s;
-    text-align: center;
-}
-
-.card-btn:hover {
-    background: #4CAF50;
-}
+    .Containter-logo{
+padding-bottom: 50px;
+    }
 
     .Containter-logo img {
       max-width: 280px;
@@ -64,13 +36,53 @@
       margin-bottom: 20px;
     }
 
-    /* Olas */
+    h1 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .welcome-card {
+      
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      padding: 30px 20px;
+      max-width: 350px;
+      margin: 50px auto;
+      text-align: center;
+    }
+
+    .card-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .card-btn {
+      flex: 1;
+      background: #a67db8;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 0;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.2s;
+      text-align: center;
+    }
+
+    .card-btn:hover {
+      background: black;
+    }
+
+    /* OLAS */
     section {
-      position: relative;
+      position: absolute;
+      bottom: 0;   /* pegado al fondo */
+      left: 0;
       width: 100%;
       height: 120px;
       overflow: hidden;
-      margin-top: -20px;
     }
 
     section .wave {
@@ -88,8 +100,8 @@
       z-index: 1000;
       opacity: 1;
       animation-delay: 0s;
-      bottom: 0;
     }
+
     section .wave.wave2 {
       animation: animate2 15s linear infinite;
       z-index: 999;
@@ -97,6 +109,7 @@
       animation-delay: -5s;
       bottom: 10px;
     }
+
     section .wave.wave3 {
       animation: animate3 30s linear infinite;
       z-index: 998;
@@ -104,6 +117,7 @@
       animation-delay: -2s;
       bottom: 15px;
     }
+
     section .wave.wave4 {
       animation: animate4 5s linear infinite;
       z-index: 997;
@@ -111,8 +125,6 @@
       animation-delay: -5s;
       bottom: 20px;
     }
-
-    
 
     @keyframes animate {
       0% { background-position-x: 0; }
@@ -130,6 +142,3 @@
       0% { background-position-x: 0; }
       100% { background-position-x: 1000px; }
     }
-
-
-

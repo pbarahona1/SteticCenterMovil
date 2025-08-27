@@ -1,32 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bienvenido a SteticCenter</title>
     <link rel="stylesheet" href="css/Registrarse.css">
 </head>
 <body>
 
-    <div>
+     <div>
      <img src="img/atras.png" alt="Regresar" class="btn-regresar" onclick="window.location.href='index.html'">
    </div>
 
-    <div class="inicio">
 
+    <div class="inicio">
         <div class="Containter-logo">
             <img src="img/logo - Editado.png" alt="Logo">
-            <h2>REGISTRARSE</h2>
+            <h2>!Bienvenido¡</h2>
+            <h3>Registrate</h3>
         </div>
 
-        <div class="welcome-card">  
+        <div class="Formulario-registro">
             <form class="form-registro">
-    <input type="text" placeholder="Usuario" required>
-    <input type="password" placeholder="Contraseña" required>
-    <a href="Inicio.html" class="btn-entrar-link">Entrar</a>
-</form>
-
+                <input type="text" placeholder="Usuario" required>
+                <input type="password" placeholder="Contraseña" required>
+                <input type="email" placeholder="Correo electrónico" required>
+                <input type="tel" placeholder="Teléfono" required pattern="\d{4}-\d{4}" inputmode="numeric">
+                <input type="text" placeholder="Dirección" required>
+                <a href="Inicio.html" class="btn-entrar-link">Entrar</a>
+            </form>
         </div>
+
         <section>
             <div class="wave wave1"></div>
             <div class="wave wave2"></div>
@@ -36,3 +40,5 @@
     </div>
 </body>
 </html>
+
+

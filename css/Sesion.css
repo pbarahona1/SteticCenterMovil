@@ -7,21 +7,23 @@ body, html {
 }
 
 .inicio {
-    min-height: calc(100vh - 120px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to top, #00d8c6 0%, #f2f2f2 100%);
-    padding: 20px;
-    position: relative;
-}
+      width: 100%;
+      height: 100vh; /* Pantalla completa */
+      background: linear-gradient(to top, #a67db8 0%, #f2f2f2 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative; /* Necesario para que las olas se posicionen dentro */
+      overflow: hidden;
+    }
 
 .Containter-logo img {
-    max-width: 180px;
-    width: 100%;
-    margin-bottom: 15px;
-}
+      max-width: 280px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
 
 .Containter-logo h2 {
     margin-bottom: 20px;
@@ -30,28 +32,27 @@ body, html {
     letter-spacing: 2px;
 }
 
-.welcome-card {
-    background: #fff;
+.Formulario-Sesion {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     padding: 30px 20px;
     max-width: 350px;
-    width: 100%;
+    width: 80%;
     margin: 20px auto;
     text-align: center;
+    background: #fff;
+    overflow: hidden;
 }
 
-.form-registro {
+.form-Sesion {
     display: flex;
     flex-direction: column;
     gap: 12px;
     margin-top: 18px;
 }
 
-.form-registro input[type="text"],
-.form-registro input[type="password"],
-.form-registro input[type="email"],
-.form-registro input[type="tel"] {
+.form-Sesion input[type="text"],
+.form-Sesion input[type="password"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -60,29 +61,28 @@ body, html {
     box-sizing: border-box;
 }
 
-.form-registro button {
+.btn-entrar-link {
+    display: block;
     width: 100%;
     padding: 12px;
     background: #4CAF50;
     color: #fff;
-    border: none;
     border-radius: 4px;
     font-size: 17px;
     font-weight: bold;
-    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
     margin-top: 8px;
     transition: background 0.2s;
+    cursor: pointer;
+    box-sizing: border-box;
 }
-
-.form-registro button:hover {
-    background: #00d8c6;
-}   
 
 .btn-regresar {
     position: absolute;
     top: 20px;
     left: 20px;
-    background: #00d8c6;
+    background: #a67db8;
     color: #fff;
     padding: 8px 18px;
     border-radius: 6px;
@@ -97,17 +97,18 @@ body, html {
 }
 
 .btn-regresar:hover {
-    background: #4CAF50;
+    background: white;
 }
 
 /* Olas */
 section {
-    position: relative;
-    width: 100%;
-    height: 120px;
-    overflow: hidden;
-    margin-top: -20px;
-}
+      position: absolute;
+      bottom: 0;   /* pegado al fondo */
+      left: 0;
+      width: 100%;
+      height: 120px;
+      overflow: hidden;
+    }
 
 section .wave {
     position: absolute;
@@ -172,7 +173,7 @@ section .wave.wave4 {
         max-width: 95vw;
     }
     .Containter-logo img {
-        max-width: 120px;
+        max-width: 280px;
     }
     .Containter-logo h2 {
         font-size: 1.2rem;
@@ -216,6 +217,7 @@ section .wave.wave4 {
     transition: background 0.2s;
     cursor: pointer;
 }
+
 .btn-entrar-link:hover {
-    background: #00d8c6;
+    background: #a67db8;
 }

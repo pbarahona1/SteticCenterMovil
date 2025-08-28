@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión | SteticCenter</title>
     <link rel="stylesheet" href="css/Sesion.css">
 </head>
+
 <body>
     <div>
         <img src="img/atras.png" alt="Regresar" class="btn-regresar" onclick="window.location.href='index.html'">
     </div>
-    
+
     <div class="inicio">
         <div class="Containter-logo">
             <img src="img/logo - Editado.png" alt="Logo">
             <h2>¡Bienvenido a SteticCenter!</h2>
         </div>
-        <div class="Formulario-Sesion">
-            <form class="form-Sesion">
-                <input type="text" placeholder="Usuario" required>
-                <input type="password" placeholder="Contraseña" required>
-                <a href="Dashboard.html" class="btn-entrar-link">Entrar</a>
-            </form>
-        </div>
+        <form id="formLogin" class="form-Sesion">
+            <input type="text" placeholder="Correo" required id="usuario">
+            <input type="password" placeholder="Contraseña" required id="password">
+            <button type="submit" class="btn-entrar-link">Entrar</button>
+             <p id="errorMsg" style="color: red; display: none; margin-top: 10px;"></p>
+        </form>
+
         <section>
             <div class="wave wave1"></div>
             <div class="wave wave2"></div>
@@ -30,5 +32,9 @@
             <div class="wave wave4"></div>
         </section>
     </div>
+    <script type="module" src="js/inicioSesion.js"></script>
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/api.js"></script>
 </body>
+
 </html>

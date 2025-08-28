@@ -34,7 +34,6 @@ function requireSession() {
   return c;
 }
 
-// Simple date utils
 function formatDate(iso) {
   if (!iso) return '';
   const d = new Date(iso);

@@ -31,7 +31,6 @@ async function loadPagos(){
     const cont = el('#facturasList');
     if (cont) html(cont, body);
 
-    // attach events
     cont?.querySelectorAll('.btn-detalle').forEach(a => a.addEventListener('click', e => {
       e.preventDefault(); alert('Detalle de factura próximamente (requiere endpoint de detalle).');
     }));

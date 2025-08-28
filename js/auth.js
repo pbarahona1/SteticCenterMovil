@@ -1,7 +1,7 @@
 import { apiGet } from './api.js';
 
 async function login(correo, contrasena) {
-  const resp = await apiGet('/api/clientes/GetClientes');
+const resp = await apiGet('/api/clientes/GetClientes');
   const data = resp.data || resp || [];
   const match = data.find(c =>
     (c.correo || c.CORREO || c.email) === correo &&

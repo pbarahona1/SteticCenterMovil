@@ -13,7 +13,7 @@ async function load() {
   if (greetEl) greetEl.textContent = `Hola, ${nombre.split(' ')[0]}!`;
 
   try {
-    const resp = await apiGet('/api/Citas/GetCitas'); 
+    const resp = await apiGet('/ApiCitas/GetCitas'); 
     const arr = resp.data || resp || [];
     const id = cliente.IDCLIENTE || cliente.idCliente;
 
@@ -42,31 +42,24 @@ async function load() {
   }
 
   try {
-    const p = await apiGet('/api/Paquetes'); // 🔹
+    const p = await apiGet('/api/paquetes/GetPaquetes');  
     const paquetes = (p.data || p || []).slice(0,6);
 
-    const s = await apiGet('/api/Servicios'); // 🔹
+    const s = await apiGet('/ApiServicios/ConsultarServicios'); 
     const servicios = (s.data || s || []).slice(0,6);
 
-    const cards = [...paquetes.map(x => ({
-      tipo:'Paquete', 
-      nombre: x.NOMBREPAQUETE || x.nombrePaquete || 'Paquete', 
-      precio: x.PRECIO || x.precio
-    })), ...servicios.map(x => ({
-      tipo:'Servicio', 
-      nombre: x.NOMBRESERVICIO || x.nombreServicio || 'Servicio', 
-      precio: x.PRECIO || x.precio
-    }))].slice(0,6).map(c => `
-      <div class="card">
-        <div class="chip">${c.tipo}</div>
-        <div class="card-title">${c.nombre}</div>
-        <div class="card-price">$${c.precio ?? '-'}</div>
-        <a class="btn-small" href="Servicios.html">Ver más</a>
-      </div>
-    `).join('');
+const cards = paquetes.slice(0,6).map(x => `
+  <div class="card">
+    <div class="chip">Paquete</div>
+    <div class="card-title">${x.nombre}</div>
+    <div class="card-price">$${x.precio ?? '-'}</div>
+    <a class="btn-small" href="Servicios.html">Ver más</a>
+  </div>
+`).join('');
 
-    const cont = el('#destacados');
-    if (cont) html(cont, cards || '<p class="empty">No hay recomendaciones.</p>');
+const cont = el('#destacados');
+if (cont) html(cont, cards || '<p class="empty">No hay recomendaciones.</p>');
+
   } catch(e){ 
     console.error("Error al cargar paquetes/servicios:", e); 
   }

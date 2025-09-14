@@ -1,19 +1,29 @@
-import {
-  createClientes,
-} from "../services/RegistrarService.js";
+// controllers/clienteController.js
+import { createCliente } from "../services/RegistrarService.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const tableBody = document.querySelector("#categoriesTable tbody");
-  const form = document.getElementById("categoryForm");
-  const modal = new bootstrap.Modal(document.getElementById("categoryModal"));
-  const lbModal = document.getElementById("categoryModalLabel");
-  const btnAdd = document.getElementById("btnAddCategory");
+    // Obtener datos del formulario
+    const Form = document.querySelector("Formulario-registro");
+    const Registrar = document.getElementById("btnRegistrar");
 
-  loadCategories();
+    try {
+      const response = await createCliente(cliente);
+      console.log("Cliente registrado con éxito");
+      
+      console.log("Cliente creado:", response);
+      window.location.href = "Dashboard.html";
+      // Redirigir si quieres:
+      // window.location.href = "Dashboard.html";
+    } catch (error) {
+      console.error("Error al registrar", err);
+      errorMsg.textContent = err.message || "Correo, Telefono incorrectos";
+      errorMsg.style.display = "block";
+    }
+  });
 
-  btnAdd.addEventListener("click", () => {
+  Registrar.addEventListener("click", () => {
     form.reset();
-    form.categoryId.value = "";
+    form.idCliente.value = "";
     lbModal.textContent = "Agregar Cliente";
     modal.show();
   });
@@ -21,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const id = form.categoryId.value;
+    const id = form.idCliente.value;
 
     const data = {
       nombreCategoria: form.categoryName.value.trim(),
@@ -40,20 +50,4 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Error al guardar la categoría: ", err);
     }
   });
-
-  async function loadCategories() {
-    try {
-      const categories = await getCategories();
-      tableBody.innerHTML = "";
-
-      if (!categories || categories.length == 0) {
-        tableBody.innerHTML =
-          '<td colspan="5">Actualmente no hay registros</td>';
-        return;
-      }
-
-    } catch (err) {
-      console.error("Error cargando categorías: ", err);
-    }
-  }
 });

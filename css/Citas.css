@@ -128,6 +128,10 @@ body {
     color: var(--warning);
 }
 
+.stat-info {
+    text-align: center;
+}
+
 .stat-info h3 {
     font-size: 2rem;
     margin-bottom: 5px;

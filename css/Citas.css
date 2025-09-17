@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-family: 'Poppins', sans-serif;
         }
         
         body {
@@ -360,4 +360,10 @@
             .dashboard-cards {
                 grid-template-columns: 1fr;
             }
+        }
+
+        .Nombre{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
         }

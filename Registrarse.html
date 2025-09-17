@@ -22,11 +22,11 @@
 
         <div class="Formulario-registro">
             <form class="form-registro" id="formRegistro">
-                <input type="text" placeholder="usuario" required id="Usuario">
-                <input type="password" placeholder="contraseña" required id="Contraseña">
-                <input type="email" placeholder="Correo electrónico" required id="Email">
-                <input type="tel" placeholder="teléfono" required pattern="\d{4}-\d{4}" inputmode="numeric" id="Telefono">
+                <input type="hidden" id="idCliente">
+                <input type="text" placeholder="Nombre" required id="Nombre">
                 <input type="text" placeholder="dirección" required id="Dirección">
+                <input type="email" placeholder="Correo electrónico" required id="Email">
+                <input type="password" placeholder="contraseña" required id="Contraseña">
                 <button type="submit" id="btnRegistrar">Registrarse</button>
             </form>
         </div>
@@ -38,6 +38,8 @@
             <div class="wave wave4"></div>
         </section>
     </div>
+
+    <script type="module" src="js/Controller/RegistrarController.js"></script>
 </body>
 </html>
 

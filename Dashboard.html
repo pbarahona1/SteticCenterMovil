@@ -13,42 +13,84 @@
 
   <main class="dashboard">
     <header class="app-header">
-      <h1 id="greet">Hola!</h1>
+      <div class="header">
+                <div class="user-info">
+                    <div class="user-avatar" id="Avatar">KO</div>
+                    <div>
+                        <div class="Nombre">
+                            <p id="Primer-nombre">a</p>
+                            <p id="Segundo-nombre">a</p>
+                        </div>
+                        <small>Cliente</small>
+                    </div>
+                </div>
+            </div>
+      <h1 id="greet">Bienvenido </h1>
     </header>
 
-    <section class="section">
-      <h2>Citas pendientes</h2>
-      <ul id="citasPendientes" class="list-cards"></ul>
-    </section>
+    
 
     <section class="section">
       <h2>Recomendado para ti</h2>
       <div id="destacados" class="grid-cards"></div>
     </section>
+
+    <section class="section">
+      <h2>Citas pendientes</h2>
+      <ul id="citasPendientes" class="list-cards"></ul>
+    </section>
+    
   </main>
 
-  <div class="fondo-menu">
-    <div class="menu">
-  <div class="toggle"><img src="img/mas.png" alt=""></div>
-  <ul>
-    <li style="--i: 0">
-      <a href="Perfil.html"><img src="img/avatar-de-usuario.png" alt=""></a>
-    </li>
-    <li style="--i: 1">
-      <a href="AgendarCitas.html"><img src="img/calendario (1).png" alt=""></a>
-    </li>
-    <li style="--i: 2">
-      <a href="MisCitas.html"><img src="img/consultar-calendario.png" alt=""></a>
-    </li><li style="--i: 3">
-      <a href="HistorialDePago.html"><img src="img/historial-de-transacciones.png" alt=""></a>
-    </li><li style="--i: 4">
-      <a href="Dashboard.html"><img src="img/hogar.png" alt=""></a>
-    </li><li style="--i: 5">
-      <a href="Servicios.html"><img src="img/spa.png" alt=""></a>
-    </li>
-  </ul>
-</div>
-</div>
+
+
+  <div class="menu">
+    <div class="navigation">
+        <ul>
+            <li class="list active">
+                <a href="Dashboard.html">
+                    <span class="icon">
+                        <img src="img/hogar.png" alt="">
+                    </span>
+                    <span class="text">Inicio</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="Perfil.html">
+                    <span class="icon">
+                        <img src="img/avatar-de-usuario.png" alt="">
+                    </span>
+                    <span class="text">Perfil</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="AgendarCitas.html">
+                    <span class="icon">
+                        <img src="img/calendario (1).png" alt="">
+                    </span>
+                    <span class="text">citas</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="HistorialDePago.html">
+                    <span class="icon">
+                        <img src="img/historial-de-transacciones.png" alt="">
+                    </span>
+                    <span class="text">Pagos</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="Servicios.html">
+                    <span class="icon">
+                        <img src="img/spa.png" alt="">
+                    </span>
+                    <span class="text">Servicios</span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+    </div>
+  </div>
 
 
 <script src="js/menu.js"></script>

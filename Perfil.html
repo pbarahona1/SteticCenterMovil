@@ -1,76 +1,125 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfil del Cliente</title>
-  <link rel="stylesheet" href="css/perfil.css">
-  <link rel="stylesheet" href="css/menu.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil del Cliente</title>
+  <link rel="stylesheet" href="css/perfil.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/FondoModo.css">
 </head>
-<body>
-  <div>
-    <img src="img/atras.png" alt="Regresar" class="btn-regresar" onclick="window.location.href='Dashboard.html'">
-  </div>
-  <div class="perfil-container">
-    <h2>Mi Perfil</h2>
-    <div class="perfil-datos">
-      <p><strong>Nombre:</strong> <span id="nombre"></span></p>
-      <p><strong>Correo:</strong> <span id="correo"></span></p>
-      <p><strong>Dirección:</strong> <span id="direccion"></span></p>
-    </div>
-    <div class="perfil-acciones">
-      <button id="btnEditar" class="btn-editar">Editar Perfil</button>
-      <button id="btnChangePass" class="btn-cambiar">Cambiar Contraseña</button>
-    </div>
-  </div>
-
-  <dialog id="editModal" class="modal">
-    <h3>Editar perfil</h3>
-    <label>Nombre<input id="fnombre" type="text" maxlength="100"></label>
-    <label>Correo<input id="fcorreo" type="email"></label>
-    <label>Dirección<input id="fdireccion" type="text" maxlength="100"></label>
-    <div class="actions">
-      <button id="saveEdit" class="btn-primary">Guardar</button>
-      <button onclick="document.querySelector('#editModal').close()">Cancelar</button>
-    </div>
-  </dialog>
-
-  <dialog id="passModal" class="modal">
-    <h3>Cambiar contraseña</h3>
-    <label>Correo registrado<input id="pcorreo" type="email" placeholder="tu.correo@ejemplo.com"></label>
-    <label>Nueva contraseña<input id="pnueva" type="password" minlength="6" placeholder="mínimo 6 caracteres"></label>
-    <div class="actions">
-      <button id="savePass" class="btn-primary">Cambiar</button>
-      <button onclick="document.querySelector('#passModal').close()">Cancelar</button>
-    </div>
-  </dialog>
-
-  <div class="fondo-menu">
-    <div class="menu">
-  <div class="toggle"><img src="img/mas.png" alt=""></div>
-  <ul>
-    <li style="--i: 0">
-      <a href="Perfil.html"><img src="img/avatar-de-usuario.png" alt=""></a>
-    </li>
-    <li style="--i: 1">
-      <a href="AgendarCitas.html"><img src="img/calendario (1).png" alt=""></a>
-    </li>
-    <li style="--i: 2">
-      <a href="MisCitas.html"><img src="img/consultar-calendario.png" alt=""></a>
-    </li><li style="--i: 3">
-      <a href="HistorialDePago.html"><img src="img/historial-de-transacciones.png" alt=""></a>
-    </li><li style="--i: 4">
-      <a href="Dashboard.html"><img src="img/hogar.png" alt=""></a>
-    </li><li style="--i: 5">
-      <a href="Servicios.html"><img src="img/spa.png" alt=""></a>
-    </li>
-  </ul>
-</div>
+<body >
+   
+<div>
+    <img src="img/atras.png" alt="Regresar" class="btn-regresar" onclick="window.location.href='Dashboard.html'">
+  </div>
+<div>
+    <img src="img/fondo perfil.jpeg" alt="" class="fondo_arriba">
 </div>
 
 
-<script src="js/menu.js"></script>
-  <script type="module" src="js/api.js"></script>
-  <script type="module" src="js/perfil.js"></script>
+  <div class="perfil-container">
+    
+    <img src="img/perfil-perfil.png" alt="" class="perfil-imagen">
+
+    <div class="perfil-datos">
+      <h2><span id="nombre"></span></h2>
+    <h3>Cliente</h3>
+      <h3><span id="correo"></span></h3>
+      <h3><span id="direccion"></span></h3>
+    </div>
+
+    <div class="perfil-acciones">
+      <button id="btnEditar" class="btn-editar">Editar Perfil</button>
+      <button id="btnChangePass" class="btn-cambiar">Cambiar Contraseña</button>
+    </div>
+
+<dialog id="editModal" class="modal" id="Botones">
+    <h3>Editar perfil</h3>
+    <label>Nombre<input id="fnombre" type="text" maxlength="100"></label>
+    <label>Correo<input id="fcorreo" type="email"></label>
+    <label>Dirección<input id="fdireccion" type="text" maxlength="100"></label>
+    <div class="actions">
+      <button id="saveEdit" class="btn-primary">Guardar</button>
+      <button onclick="document.querySelector('#editModal').close()">Cancelar</button>
+    </div>
+  </dialog>
+
+  <dialog id="passModal" class="modal" id="Botones">
+    <h3>Cambiar contraseña</h3>
+    <label>Correo registrado<input id="pcorreo" type="email" placeholder="tu.correo@ejemplo.com"></label>
+    <label>Nueva contraseña<input id="pnueva" type="password" minlength="6" placeholder="mínimo 6 caracteres"></label>
+    <div class="actions">
+      <button id="savePass" class="btn-primary">Cambiar</button>
+      <button onclick="document.querySelector('#passModal').close()">Cancelar</button>
+    </div>
+  </dialog>
+
+<div class="modo">
+  <input type="checkbox" class="checkbox" id="checkbox">
+  <label for="checkbox" class="checkbox-label">
+    <img src="img/dom.png" alt="">
+    <img src="img/luna-creciente.png" alt="">
+    <span class="ball"></span>
+  </label>
+</div>
+  </div>
+
+  
+
+<div class="menu">
+    <div class="navigation">
+        <ul>
+            <li class="list active">
+                <a href="Dashboard.html">
+                    <span class="icon">
+                        <img src="img/hogar.png" alt="">
+                    </span>
+                    <span class="text">Inicio</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="Perfil.html">
+                    <span class="icon">
+                        <img src="img/avatar-de-usuario.png" alt="">
+                    </span>
+                    <span class="text">Perfil</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="AgendarCitas.html">
+                    <span class="icon">
+                        <img src="img/calendario (1).png" alt="">
+                    </span>
+                    <span class="text">citas</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="HistorialDePago.html">
+                    <span class="icon">
+                        <img src="img/historial-de-transacciones.png" alt="">
+                    </span>
+                    <span class="text">Pagos</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="Servicios.html">
+                    <span class="icon">
+                        <img src="img/spa.png" alt="">
+                    </span>
+                    <span class="text">Servicios</span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+    </div>
+  </div>
+
+
+	<script src="js/fondoperfil.js"></script>
+  <script src="js/menu.js"></script>
+  <script type="module" src="js/api.js"></script>
+  <script type="module" src="js/perfil.js"></script>
+<script src="js/FondoModo.js"></script>
 </body>
 </html>

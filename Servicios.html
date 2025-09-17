@@ -15,22 +15,24 @@
     <img src="img/atras.png" alt="Regresar" class="btn-regresar" onclick="window.location.href='DashBoard.html'">
   </div>
 
-  <main>
-    <p class="Servicios"></p>
+<main>
+  <p class="Servicios"></p>
 
-    <div class="card">
+  <div class="element-card">
     <div class="front">
-      <p>a</p>
+      <img src="img/spa.png" alt="Servicio Icono" class="icono-servicio">
+      <h3 class="nombre-servicio">Masaje Relajante</h3>
     </div>
-    <div class="back">
-      
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolorem illum minima laborum numquam
-        voluptatum natus quam eveniet adipisci sunt doloribus, sint dolorum ullam optio perferendis totam vero dolores
-        reprehenderit?</p>
+    <div class="back" style="background-image: url('img/HoySiMejorada.webp');">
+      <div class="contenido-back">
+        <h2>Masaje Relajante</h2>
+        <p>Disfruta de un masaje que elimina el estrés y mejora tu bienestar.</p>
+        <button class="btn-reservar" onclick="window.location.href='MisCitas.html'">Reservar</button>
+      </div>
     </div>
   </div>
+</main>
 
-  </main>
 
 
   <div class="menu">
@@ -81,7 +83,7 @@
     </div>
   </div>
 
-
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="js/Controller/ServiciosController.js"></script>
   <script src="js/menu.js"></script>
 </body>

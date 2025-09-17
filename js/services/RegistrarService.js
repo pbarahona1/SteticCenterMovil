@@ -1,4 +1,4 @@
-const API_URL = "http://8080/api/clientes";
+const API_URL = "http://localhost:8080/api/clientes";
 
 export async function createCliente(data){
     await fetch(`${API_URL}/PostClientes`, {
@@ -7,3 +7,4 @@ export async function createCliente(data){
         body: JSON.stringify(data)
     });
 }
+

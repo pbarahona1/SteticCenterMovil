@@ -1,70 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/Servicios.css">
-    <link rel="stylesheet" href="css/menu.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/Servicios.css">
+  <link rel="stylesheet" href="css/menu.css">
 </head>
+
 <body>
 
-    <div>
-     <img src="img/atras.png" alt="Regresar" class="btn-regresar" onclick="window.location.href='DashBoard.html'">
-   </div>
+  <div>
+    <img src="img/atras.png" alt="Regresar" class="btn-regresar" onclick="window.location.href='DashBoard.html'">
+  </div>
 
-    <div class="servicios-container">
-        <h2>Servicios Disponibles</h2>
-        <div class="servicios-list">
-            <div class="servicio-card">
-                <h3>Masaje Relajante</h3>
-                <p>Un masaje para aliviar el estrés y relajar los músculos.</p>
-                <p><strong>Duración:</strong> 60 minutos</p>
-                <p><strong>Precio:</strong> $500 MXN</p>
-                <a href="AgendarCitas.html" class="btn-agendar">Agendar</a>
-            </div>
-            <div class="servicio-card">
-                <h3>Facial Hidratante</h3>
-                <p>Tratamiento facial para hidratar y revitalizar la piel.</p>
-                <p><strong>Duración:</strong> 45 minutos</p>
-                <p><strong>Precio:</strong> $350 MXN</p>
-                <a href="AgendarCitas.html" class="btn-agendar">Agendar</a>
-            </div>
-            <div class="servicio-card">
-                <h3>Depilación con Cera</h3>
-                <p>Depilación profesional para una piel suave y libre de vello.</p>
-                <p><strong>Duración:</strong> 30 minutos</p>
-                <p><strong>Precio:</strong> $250 MXN</p>
-                <a href="AgendarCitas.html" class="btn-agendar">Agendar</a>
-            </div>
-            <!-- Agrega más servicios aquí -->
-        </div>
+  <main>
+    <p class="Servicios"></p>
+
+    <div class="card">
+    <div class="front">
+      <p>a</p>
     </div>
+    <div class="back">
+      
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolorem illum minima laborum numquam
+        voluptatum natus quam eveniet adipisci sunt doloribus, sint dolorum ullam optio perferendis totam vero dolores
+        reprehenderit?</p>
+    </div>
+  </div>
 
-    <div class="fondo-menu">
-        <div class="menu">
-      <div class="toggle"><img src="img/mas.png" alt=""></div>
+  </main>
+
+
+  <div class="menu">
+    <div class="navigation">
       <ul>
-        <li style="--i: 0">
-          <a href="Perfil.html"><img src="img/avatar-de-usuario.png" alt=""></a>
+        <li class="list active">
+          <a href="Dashboard.html">
+            <span class="icon">
+              <img src="img/hogar.png" alt="">
+            </span>
+            <span class="text">Inicio</span>
+          </a>
         </li>
-        <li style="--i: 1">
-          <a href="AgendarCitas.html"><img src="img/calendario (1).png" alt=""></a>
+        <li class="list">
+          <a href="Perfil.html">
+            <span class="icon">
+              <img src="img/avatar-de-usuario.png" alt="">
+            </span>
+            <span class="text">Perfil</span>
+          </a>
         </li>
-        <li style="--i: 2">
-          <a href="MisCitas.html"><img src="img/consultar-calendario.png" alt=""></a>
-        </li><li style="--i: 3">
-          <a href="HistorialDePago.html"><img src="img/historial-de-transacciones.png" alt=""></a>
-        </li><li style="--i: 4">
-          <a href="Dashboard.html"><img src="img/hogar.png" alt=""></a>
-        </li><li style="--i: 5">
-          <a href="Servicios.html"><img src="img/spa.png" alt=""></a>
+        <li class="list">
+          <a href="AgendarCitas.html">
+            <span class="icon">
+              <img src="img/calendario (1).png" alt="">
+            </span>
+            <span class="text">citas</span>
+          </a>
         </li>
+        <li class="list">
+          <a href="HistorialDePago.html">
+            <span class="icon">
+              <img src="img/historial-de-transacciones.png" alt="">
+            </span>
+            <span class="text">Pagos</span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="Servicios.html">
+            <span class="icon">
+              <img src="img/spa.png" alt="">
+            </span>
+            <span class="text">Servicios</span>
+          </a>
+        </li>
+        <div class="indicator"></div>
       </ul>
     </div>
-    </div>
-    
-    
-    <script src="js/menu.js"></script>
+  </div>
+
+
+  <script src="js/Controller/ServiciosController.js"></script>
+  <script src="js/menu.js"></script>
 </body>
+
 </html>

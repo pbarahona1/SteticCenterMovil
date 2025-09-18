@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     url = 'perfil.html';
                     break;
                 case 'citas':
-                    url = 'AgendarCitas.html';
+                    url = 'MisCitas.html';
                     break;
                 case 'pagos':
                     url = 'HistorialDePago.html';

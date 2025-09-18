@@ -1,7 +1,11 @@
-const API_CITAS = "http://localhost:8080/ApiCitas";
- 
-// Función para obtener totales de citas según tu estructura de BD
-export function obtenerTotalesCitas(citas) {
+// citasServices.js - Servicios para estadísticas y utilidades
+
+/**
+ * Función para obtener totales de citas según los estados de la BD
+ * @param {Array} citas - Array de citas obtenido de la API
+ * @returns {Object} - Objeto con los totales por estado
+ */
+function obtenerTotalesCitas(citas) {
   // Validar que citas es un array
   if (!Array.isArray(citas)) {
     console.error('Se esperaba un array de citas');
@@ -16,7 +20,7 @@ export function obtenerTotalesCitas(citas) {
   citas.forEach(cita => {
     try {
       // Usar el nombre exacto de campo de tu BD: estado
-      const estado = String(cita.estado || cita.ESTADO || "").toUpperCase().trim();
+      const estado = String(cita.estado || "").toUpperCase().trim();
       
       switch(estado) {
         case "COMPLETADA":
@@ -42,30 +46,55 @@ export function obtenerTotalesCitas(citas) {
   return { completadas, pendientes, canceladas, confirmadas };
 }
 
-// Función para actualizar la UI con los totales
-export function actualizarEstadisticasCitas(citas) {
+/**
+ * Función para actualizar la UI con los totales de citas
+ * @param {Array} citas - Array de citas obtenido de la API
+ */
+function actualizarEstadisticasCitas(citas) {
   try {
     const totals = obtenerTotalesCitas(citas);
     
-    // Actualizar los elementos si existen
+    // Actualizar las tarjetas de estadísticas en el dashboard
+    const statCards = document.querySelectorAll('.stat-card');
+    if (statCards.length >= 3) {
+      // Tarjeta 1: Citas Pendientes
+      const pendientesCard = statCards[0].querySelector('h3');
+      if (pendientesCard) pendientesCard.textContent = totals.pendientes;
+      
+      // Tarjeta 2: Citas Completadas
+      const completadasCard = statCards[1].querySelector('h3');
+      if (completadasCard) completadasCard.textContent = totals.completadas;
+      
+      // Tarjeta 3: Citas Canceladas
+      const canceladasCard = statCards[2].querySelector('h3');
+      if (canceladasCard) canceladasCard.textContent = totals.canceladas;
+    }
+    
+    // También actualizar elementos específicos si existen
     const pendienteElem = document.getElementById('pendiente');
     const completadosElem = document.getElementById('Completados');
     const canceladasElem = document.getElementById('Canceladas');
+    const confirmadasElem = document.getElementById('Confirmadas');
     
     if (pendienteElem) pendienteElem.textContent = totals.pendientes;
     if (completadosElem) completadosElem.textContent = totals.completadas;
     if (canceladasElem) canceladasElem.textContent = totals.canceladas;
-    
-    // También puedes mostrar las confirmadas si tienes un elemento para ello
-    const confirmadasElem = document.getElementById('Confirmadas');
     if (confirmadasElem) confirmadasElem.textContent = totals.confirmadas;
+    
+    console.log('Estadísticas actualizadas:', totals);
     
   } catch (error) {
     console.error('Error actualizando estadísticas:', error);
   }
 }
 
-export function estadisticasCitasPorFecha(citas, dias = 7) {
+/**
+ * Función para obtener estadísticas de citas por fecha
+ * @param {Array} citas - Array de citas
+ * @param {number} dias - Número de días a analizar (por defecto 7)
+ * @returns {Object} - Objeto con labels y datos por estado
+ */
+function estadisticasCitasPorFecha(citas, dias = 7) {
   // Crear array de los últimos 'dias' días
   const days = Array.from({ length: dias }, (_, i) => {
     const date = new Date();
@@ -92,14 +121,14 @@ export function estadisticasCitasPorFecha(citas, dias = 7) {
   citas.forEach(cita => {
     try {
       // Usar el campo fecha_cita de tu BD
-      const fechaCita = new Date(cita.fecha_cita || cita.FECHA_CITA);
+      const fechaCita = new Date(cita.fecha_cita);
       fechaCita.setHours(0, 0, 0, 0); // Normalizar hora
       
       // Encontrar el índice del día correspondiente
       const diaIndex = days.findIndex(d => d.getTime() === fechaCita.getTime());
       
       if (diaIndex !== -1) {
-        const estado = String(cita.estado || cita.ESTADO || "").toUpperCase().trim();
+        const estado = String(cita.estado || "").toUpperCase().trim();
         
         switch(estado) {
           case "COMPLETADA":
@@ -122,4 +151,108 @@ export function estadisticasCitasPorFecha(citas, dias = 7) {
   });
 
   return { labels, ...resultados };
+}
+
+/**
+ * Función para obtener citas del mes actual
+ * @param {Array} citas - Array de todas las citas
+ * @returns {Array} - Citas del mes actual
+ */
+function obtenerCitasDelMes(citas) {
+  const now = new Date();
+  const currentMonth = now.getMonth();
+  const currentYear = now.getFullYear();
+  
+  return citas.filter(cita => {
+    const citaDate = new Date(cita.fecha_cita);
+    return citaDate.getMonth() === currentMonth && citaDate.getFullYear() === currentYear;
+  });
+}
+
+/**
+ * Función para obtener próximas citas (siguientes 7 días)
+ * @param {Array} citas - Array de todas las citas
+ * @returns {Array} - Próximas citas ordenadas por fecha
+ */
+function obtenerProximasCitas(citas) {
+  const now = new Date();
+  const nextWeek = new Date();
+  nextWeek.setDate(now.getDate() + 7);
+  
+  return citas
+    .filter(cita => {
+      const citaDate = new Date(cita.fecha_cita);
+      return citaDate >= now && citaDate <= nextWeek && cita.estado !== 'CANCELADA';
+    })
+    .sort((a, b) => new Date(a.fecha_cita) - new Date(b.fecha_cita));
+}
+
+/**
+ * Función para obtener citas por estado
+ * @param {Array} citas - Array de todas las citas
+ * @param {string} estado - Estado a filtrar (PENDIENTE, CONFIRMADA, etc.)
+ * @returns {Array} - Citas filtradas por estado
+ */
+function obtenerCitasPorEstado(citas, estado) {
+  return citas.filter(cita => 
+    cita.estado.toUpperCase() === estado.toUpperCase()
+  );
+}
+
+/**
+ * Función para verificar si hay conflictos de horario
+ * @param {Array} citas - Array de todas las citas
+ * @param {Date} fechaCita - Fecha de la nueva cita
+ * @param {number} idHorario - ID del horario
+ * @param {number} idCitaExcluir - ID de cita a excluir (para edición)
+ * @returns {boolean} - true si hay conflicto
+ */
+function verificarConflictoHorario(citas, fechaCita, idHorario, idCitaExcluir = null) {
+  const fechaStr = new Date(fechaCita).toDateString();
+  
+  return citas.some(cita => {
+    if (idCitaExcluir && cita.idCita === idCitaExcluir) {
+      return false; // Excluir la cita que se está editando
+    }
+    
+    const citaFechaStr = new Date(cita.fecha_cita).toDateString();
+    return citaFechaStr === fechaStr && 
+           cita.idHorario === idHorario && 
+           cita.estado !== 'CANCELADA';
+  });
+}
+
+/**
+ * Función para generar reporte de estadísticas completo
+ * @param {Array} citas - Array de todas las citas
+ * @returns {Object} - Reporte completo de estadísticas
+ */
+function generarReporteEstadisticas(citas) {
+  const totalCitas = citas.length;
+  const totalesPorEstado = obtenerTotalesCitas(citas);
+  const citasDelMes = obtenerCitasDelMes(citas);
+  const proximasCitas = obtenerProximasCitas(citas);
+  const estadisticasSemana = estadisticasCitasPorFecha(citas, 7);
+  
+  return {
+    total: totalCitas,
+    porEstado: totalesPorEstado,
+    delMesActual: citasDelMes.length,
+    proximasSemana: proximasCitas.length,
+    estadisticasSemanal: estadisticasSemana,
+    tasaConfirmacion: totalCitas > 0 ? ((totalesPorEstado.confirmadas + totalesPorEstado.completadas) / totalCitas * 100).toFixed(1) : 0,
+    tasaCancelacion: totalCitas > 0 ? (totalesPorEstado.canceladas / totalCitas * 100).toFixed(1) : 0
+  };
+}
+
+// Hacer las funciones disponibles globalmente
+if (typeof window !== 'undefined') {
+  window.obtenerTotalesCitas = obtenerTotalesCitas;
+  window.actualizarEstadisticasCitas = actualizarEstadisticasCitas;
+  window.estadisticasCitasPorFecha = estadisticasCitasPorFecha;
+  window.obtenerCitasDelMes = obtenerCitasDelMes;
+  window.obtenerProximasCitas = obtenerProximasCitas;
+  window.obtenerCitasPorEstado = obtenerCitasPorEstado;
+  window.verificarConflictoHorario = verificarConflictoHorario;
+  window.generarReporteEstadisticas = generarReporteEstadisticas;
 }

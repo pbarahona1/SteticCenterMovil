@@ -11,7 +11,10 @@ async function apiSend(method, path, data) {
   const url = `${API_BASE}${path}`;
   const res = await fetch(url, {
     method,
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      headers: {
+    "Authorization": "Bearer " + localStorage.getItem("token"), 
+    "Content-Type": "application/json"
+  },
     body: JSON.stringify(data)
   });
   if (!res.ok) throw new Error(`${method} ${path} -> ${res.status}`);
